@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포라인투자자문 - FourLine Investment</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .section {
+            padding: 80px 20px;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #2563eb;
+        }
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        .card {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+        .nav-link {
+            position: relative;
+            padding: 10px 15px;
+            color: #333;
+            font-weight: 500;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #2563eb;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after {
+            width: 70%;
+        }
+        .nav-link.active::after {
+            width: 70%;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        .news-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .news-card:hover {
+            border-left: 4px solid #2563eb;
+            background-color: #f8fafc;
+        }
+        @media (max-width: 768px) {
+            .desktop-menu {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .mobile-menu {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                padding: 20px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 100;
+            }
+            .section {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="content-wrapper flex justify-between items-center py-4 px-6">
+            <div class="flex items-center">
+                <h1 class="text-3xl font-bold text-blue-700">FourLine</h1>
+                <span class="ml-2 text-gray-600">Investment</span>
+            </div>
+            <nav class="desktop-menu">
+                <ul class="flex space-x-4">
+                    <li><a href="#about" class="nav-link active">회사소개</a></li>
+                    <li><a href="#philosophy" class="nav-link">운용철학</a></li>
+                    <li><a href="#risk" class="nav-link">리스크관리</a></li>
+                    <li><a href="#products" class="nav-link">상품소개</a></li>
+                    <li><a href="#news" class="nav-link">공지사항</a></li>
+                    <li><a href="#contact" class="nav-link">문의하기</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <i class="fas fa-bars text-2xl"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- 모바일 메뉴 (기본적으로 숨겨져 있음) -->
+    <div class="mobile-menu hidden">
+        <ul class="flex flex-col space-y-4">
+            <li><a href="#about" class="block py-2 px-4 hover:bg-blue-50 rounded">회사소개</a></li>
+            <li><a href="#philosophy" class="block py-2 px-4 hover:bg-blue-50 rounded">운용철학</a></li>
+            <li><a href="#risk" class="block py-2 px-4 hover:bg-blue-50 rounded">리스크관리</a></li>
+            <li><a href="#products" class="block py-2 px-4 hover:bg-blue-50 rounded">상품소개</a></li>
+            <li><a href="#news" class="block py-2 px-4 hover:bg-blue-50 rounded">공지사항</a></li>
+            <li><a href="#contact" class="block py-2 px-4 hover:bg-blue-50 rounded">문의하기</a></li>
+        </ul>
+    </div>
+
+    <!-- 메인 콘텐츠 -->
+    <main class="pt-20">
+        <!-- 히어로 섹션 -->
+        <section class="hero-gradient text-white py-20 px-6">
+            <div class="content-wrapper flex flex-col items-center text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">포라인투자자문</h2>
+                <p class="text-xl md:text-2xl mb-10 max-w-3xl">
+                    포라인투자자문은 고객의 가치를 최우선으로 생각합니다.
+                    고객의 가치를 높였을 때, 포라인투자자문도 성장합니다.
+                </p>
+                <a href="#contact" class="btn-primary">더 알아보기</a>
+            </div>
+        </section>
+
+        <!-- 대표이사 인사말 -->
+        <section id="about" class="section bg-white">
+            <div class="content-wrapper">
+                <div class="flex flex-col md:flex-row items-center gap-10">
+                    <div class="w-full md:w-1/2">
+                        <h2 class="section-title text-3xl">대표이사 인사말</h2>
+                        <h3 class="text-xl text-blue-600 mb-4">CEO Commitment</h3>
+                        <p class="mb-6 text-lg">
+                            포라인투자자문에 보내주시는 관심과 신뢰에 깊은 감사를 드립니다.
+                        </p>
+                        <p class="mb-6">
+                            포라인투자자문은 고객의 자산 가치를 최우선으로 생각합니다. 고객 자산의 안정적인 성장을 위해 
+                            체계적인 분석과 철저한 리스크 관리를 바탕으로 최적의 투자 솔루션을 제공하고 있습니다.
+                        </p>
+                        <p class="mb-6">
+                            급변하는 금융 환경 속에서도 흔들림 없는 원칙을 지키며, 고객의 신뢰에 보답하는 자산관리 파트너가 되겠습니다.
+                            앞으로도 포라인투자자문은 고객과 함께 성장하며 가치 있는 미래를 만들어가겠습니다.
+                        </p>
+                        <p class="text-right mt-4 font-semibold">
+                            포라인투자자문 대표이사
+                        </p>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <div class="card">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ceo-image-placeholder.png" alt="CEO 메시지" class="w-full h-auto" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80';">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 운용철학 -->
+        <section id="philosophy" class="section bg-gray-50">
+            <div class="content-wrapper">
+                <div class="flex flex-col md:flex-row-reverse items-center gap-10">
+                    <div class="w-full md:w-1/2">
+                        <h2 class="section-title text-3xl">운용철학</h2>
+                        <h3 class="text-xl text-blue-600 mb-4">Philosophy</h3>
+                        <p class="mb-6">
+                            가치 성장, 분산투자, 상향식 투자전략은 포라인투자자문의 세 가지 중요한 운용철학입니다.
+                        </p>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-blue-600 rounded-full p-2 mr-4 mt-1">
+                                    <i class="fas fa-chart-line text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-semibold mb-2">가치 성장</h4>
+                                    <p>본질적 가치에 기반한 투자를 통해 안정적인 자산 성장을 추구합니다. 단기적 시장 변동보다는 기업의 내재 가치에 집중합니다.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-600 rounded-full p-2 mr-4 mt-1">
+                                    <i class="fas fa-balance-scale text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-semibold mb-2">분산투자</h4>
+                                    <p>다양한 자산과 섹터에 분산 투자하여 리스크를 관리하고 안정적인 수익을 추구합니다.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-600 rounded-full p-2 mr-4 mt-1">
+                                    <i class="fas fa-arrow-up text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-semibold mb-2">상향식 투자전략</h4>
+                                    <p>개별 기업의 철저한 분석을 통해 투자 대상을 선정하는 상향식(Bottom-up) 전략으로 우량 자산을 발굴합니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <div class="card">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/finance-chart-placeholder.png" alt="운용철학" class="w-full h-auto" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80';">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 리스크관리 -->
+        <section id="risk" class="section bg-white">
+            <div class="content-wrapper">
+                <div class="flex flex-col md:flex-row items-center gap-10">
+                    <div class="w-full md:w-1/2">
+                        <h2 class="section-title text-3xl">리스크관리</h2>
+                        <h3 class="text-xl text-blue-600 mb-4">Risk Management</h3>
+                        <p class="mb-6">
+                            분산투자와 수시 모니터링을 통해 포트폴리오의 리스크를 관리합니다.
+                        </p>
+                        <div class="space-y-6">
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="text-xl font-semibold mb-3">체계적인 리스크 관리 프로세스</h4>
+                                <p>포라인투자자문은 시장 리스크, 유동성 리스크, 집중 리스크 등 다양한 투자 위험 요소를 종합적으로 분석하고 관리합니다.</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="text-xl font-semibold mb-3">실시간 모니터링 시스템</h4>
+                                <p>포트폴리오의 위험 수준을 실시간으로 모니터링하여 위험 요인 발생 시 신속하게 대응합니다.</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="text-xl font-semibold mb-3">분산투자 전략</h4>
+                                <p>자산군, 업종, 지역 등 다양한 측면에서 분산투자를 실현하여 특정 위험에 과도하게 노출되지 않도록 관리합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <div class="card">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/risk-management-placeholder.png" alt="리스크관리" class="w-full h-auto" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559526324-593bc073d938?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80';">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 상품소개 -->
+        <section id="products" class="section bg-gray-50">
+            <div class="content-wrapper">
+                <div class="flex flex-col md:flex-row-reverse items-center gap-10">
+                    <div class="w-full md:w-1/2">
+                        <h2 class="section-title text-3xl">상품소개</h2>
+                        <h3 class="text-xl text-blue-600 mb-4">Investments</h3>
+                        <p class="mb-6">
+                            국내 주식 일임형 / 선취 운용수수료와 성과 수수료 / 최소 일임계약 금액 3억 원
+                        </p>
+                        <div class="space-y-8">
+                            <div class="border-l-4 border-blue-600 pl-4">
+                                <h4 class="text-xl font-semibold mb-2">국내 주식 일임형</h4>
+                                <p>고객의 투자 성향에 맞춘 맞춤형 포트폴리오 구성 및 전문적인 운용 서비스를 제공합니다.</p>
+                            </div>
+                            <div class="border-l-4 border-blue-600 pl-4">
+                                <h4 class="text-xl font-semibold mb-2">수수료 체계</h4>
+                                <p>투명한 수수료 구조로 선취 운용수수료와 성과에 따른 성과 수수료를 적용합니다.</p>
+                                <ul class="mt-2 space-y-1 list-disc list-inside ml-4">
+                                    <li>기본 운용수수료: 연 1.0% (선취)</li>
+                                    <li>성과 수수료: 초과수익의 20% (연 1회 정산)</li>
+                                </ul>
+                            </div>
+                            <div class="border-l-4 border-blue-600 pl-4">
+                                <h4 class="text-xl font-semibold mb-2">계약 조건</h4>
+                                <p>최소 일임계약 금액은 3억 원이며, 계약 기간은 1년입니다. (자동 연장 가능)</p>
+                            </div>
+                            <div class="mt-8">
+                                <a href="#contact" class="btn-primary">상담 신청하기</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <div class="card">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/investment-products-placeholder.png" alt="상품소개" class="w-full h-auto" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80';">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 공지사항 -->
+        <section id="news" class="section bg-white">
+            <div class="content-wrapper">
+                <h2 class="section-title text-3xl">공지사항</h2>
+                <h3 class="text-xl text-blue-600 mb-8">News & Announcements</h3>
+                
+                <div class="space-y-6">
+                    <!-- 공지사항 항목 1 -->
+                    <div class="news-card border border-gray-200 rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xl font-semibold">2023년 4분기 투자 설명회 개최 안내</h4>
+                            <span class="text-sm text-gray-500">2023.12.01</span>
+                        </div>
+                        <p class="mb-4">포라인투자자문의 2023년 4분기 투자 설명회를 개최합니다. 이번 설명회에서는 글로벌 경제 전망과 국내 주식 시장 투자 전략에 대해 심도 있게 다룰 예정입니다.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <span>포라인빌딩 강당</span>
+                                <i class="fas fa-clock ml-4 mr-2"></i>
+                                <span>오후 2시</span>
+                            </div>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">자세히 보기 <i class="fas fa-chevron-right ml-1 text-xs"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- 공지사항 항목 2 -->
+                    <div class="news-card border border-gray-200 rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xl font-semibold">포라인투자자문 신규 펀드 출시</h4>
+                            <span class="text-sm text-gray-500">2023.11.15</span>
+                        </div>
+                        <p class="mb-4">포라인투자자문은 신규 펀드 '포라인 가치성장 펀드'를 출시합니다. 이 펀드는 장기적인 가치 성장을 추구하는 투자자들을 위한 맞춤형 상품입니다.</p>
+                        <div class="flex justify-end">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">자세히 보기 <i class="fas fa-chevron-right ml-1 text-xs"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- 공지사항 항목 3 -->
+                    <div class="news-card border border-gray-200 rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xl font-semibold">포라인투자자문 고객 감사 이벤트</h4>
+                            <span class="text-sm text-gray-500">2023.10.20</span>
+                        </div>
+                        <p class="mb-4">포라인투자자문은 고객 여러분의 성원에 보답하고자 연말 고객 감사 이벤트를 진행합니다. 참여하신 모든 고객분들께 특별한 혜택을 제공해 드립니다.</p>
+                        <div class="flex justify-end">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">자세히 보기 <i class="fas fa-chevron-right ml-1 text-xs"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- 공지사항 항목 4 -->
+                    <div class="news-card border border-gray-200 rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xl font-semibold">포라인투자자문 서비스 이용 안내</h4>
+                            <span class="text-sm text-gray-500">2023.09.05</span>
+                        </div>
+                        <p class="mb-4">포라인투자자문의 서비스 이용 방법 및 절차에 대한 상세 안내입니다. 최적의 투자 경험을 위해 서비스 이용 가이드를 확인해 주세요.</p>
+                        <div class="flex justify-end">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">자세히 보기 <i class="fas fa-chevron-right ml-1 text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 페이지네이션 -->
+                <div class="flex justify-center mt-10">
+                    <nav class="inline-flex rounded-md shadow">
+                        <a href="#" class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium text-gray-500 hover:bg-gray-50">
+                            이전
+                        </a>
+                        <a href="#" class="px-4 py-2 bg-blue-600 text-sm font-medium text-white border border-blue-600">
+                            1
+                        </a>
+                        <a href="#" class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium text-gray-500 hover:bg-gray-50">
+                            2
+                        </a>
+                        <a href="#" class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium text-gray-500 hover:bg-gray-50">
+                            3
+                        </a>
+                        <a href="#" class="px-4 py-2 bg-white border border-gray-300 text-sm font-medium text-gray-500 hover:bg-gray-50">
+                            다음
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <!-- 문의하기 -->
+        <section id="contact" class="section bg-gray-50">
+            <div class="content-wrapper">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">문의하기</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        포라인투자자문의 서비스에 관심이 있으시거나 궁금한 점이 있으시면 아래 양식을 통해 문의해 주세요.
+                    </p>
+                </div>
+                <div class="flex flex-col md:flex-row gap-10">
+                    <div class="w-full md:w-1/2">
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">이름</label>
+                                <input type="text" id="name" name="name" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">이메일</label>
+                                <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">연락처</label>
+                                <input type="tel" id="phone" name="phone" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">문의내용</label>
+                                <textarea id="message" name="message" rows="5" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <div class="mt-8">
+                                <button type="submit" class="btn-primary w-full">문의하기</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <div class="bg-white p-8 rounded-lg shadow-sm h-full">
+                            <h3 class="text-2xl font-semibold mb-6">연락처 정보</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-600 rounded-full p-2 mr-4 mt-1">
+                                        <i class="fas fa-map-marker-alt text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-1">주소</h4>
+                                        <p>서울특별시 강남구 테헤란로 123 포라인빌딩 8층</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-blue-600 rounded-full p-2 mr-4 mt-1">
+                                        <i class="fas fa-phone text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-1">전화</h4>
+                                        <p>02-1234-5678</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-blue-600 rounded-full p-2 mr-4 mt-1">
+                                        <i class="fas fa-envelope text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-1">이메일</h4>
+                                        <p>info@fourlineinvest.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-blue-600 rounded-full p-2 mr-4 mt-1">
+                                        <i class="fas fa-clock text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-1">운영시간</h4>
+                                        <p>평일 오전 9시 ~ 오후 6시 (주말 및 공휴일 휴무)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="bg-gray-800 text-white py-12 px-6">
+        <div class="content-wrapper">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <h2 class="text-2xl font-bold mb-4">포라인투자자문</h2>
+                    <p class="text-gray-400 mb-2">FourLine Investment Advisory</p>
+                    <p class="text-gray-400">고객의 가치를 최우선으로 생각합니다.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">회사 정보</h3>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>대표이사: 김포라인</li>
+                            <li>사업자등록번호: 123-45-67890</li>
+                            <li>투자자문업 등록번호: 제0000호</li>
+                            <li>설립일: 2023년 1월 1일</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">바로가기</h3>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#about" class="hover:text-white">회사소개</a></li>
+                            <li><a href="#philosophy" class="hover:text-white">운용철학</a></li>
+                            <li><a href="#risk" class="hover:text-white">리스크관리</a></li>
+                            <li><a href="#products" class="hover:text-white">상품소개</a></li>
+                            <li><a href="#news" class="hover:text-white">공지사항</a></li>
+                            <li><a href="#contact" class="hover:text-white">문의하기</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">법적 고지</h3>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#" class="hover:text-white">개인정보처리방침</a></li>
+                            <li><a href="#" class="hover:text-white">이용약관</a></li>
+                            <li><a href="#" class="hover:text-white">면책조항</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-500">
+                <p>&copy; 2023 포라인투자자문 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 모바일 메뉴 토글
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            hamburger.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // 모바일 메뉴 항목 클릭 시 메뉴 닫기
+            const mobileMenuItems = document.querySelectorAll('.mobile-menu a');
+            mobileMenuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+            
+            // 스크롤 시 헤더 스타일 변경
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('shadow-lg');
+                } else {
+                    header.classList.remove('shadow-lg');
+                }
+            });
+            
+            // 스무스 스크롤
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
